@@ -67,4 +67,5 @@ mastodon.status_post(f'Name: {character["name"]} \n'
                      f'Status: {character["status"]}\n'
                      f'Origin: {character["origin"]["name"]}\n'
                      f'Location: {character["location"]["name"]}\n'
-                     f'Appeared in: {episode_string}', media_ids=character_image["id"])
+                     f'Appeared in: {episode_string}\n'
+                     f'Data from https://rickandmortyapi.com', media_ids=character_image["id"])
