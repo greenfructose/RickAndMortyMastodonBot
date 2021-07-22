@@ -1,3 +1,3 @@
 # RickAndMortyMastodonBot
-Bot that posts character profiles from Rick and Morty using th Ricka and Mort API
+Bot that posts character profiles from Rick and Morty using the Rick and Morty API
 https://rickandmortyapi.com
