@@ -1,0 +1,16 @@
+[apikey]
+key = twitter_apiKey
+secret = twitter_apiSecret
+
+[token]
+token = twitter_appToken
+secret = twitter_appSecret
+
+[app]
+rule = twitter_handle
+account_screen_name = twitter_displayName
+account_user_id = twitter_handle
+
+[mastodon]
+key = mastodon_apiKey
+url = mastodon_instanceURL
