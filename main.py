@@ -8,6 +8,8 @@ from mastodon import Mastodon
 # URL for the characters
 RM_API_URL = 'https://rickandmortyapi.com/api/character'
 
+# Used character IDs file
+USED_IDS = '/home/justinclarkturney/bots/RickAndMortyMastodonBot/used_character_ids'
 # Get total character count
 response = requests.get(RM_API_URL)
 json_response = response.json()
@@ -16,26 +18,24 @@ used_characters = []
 
 # Create mastodon API instance and authorize
 mastodon = Mastodon(
-    access_token='Token_Here',
-    api_base_url='Instance_URL_Here'
+    access_token='',
+    api_base_url=''
 )
 
 
 # Check if character ID has already been used, if not then make new post
 def check_if_id_used(id_num, count):
-    with open('used_character_ids') as file:
+    with open(USED_IDS) as file:
         for line in file:
             if f'a{id_num}a' in line:
                 id_num = str(random.randint(1, count))
                 check_if_id_used(id_num, count)
-            else:
-                return str(id_num)
+        return str(id_num)
 
 
 character_id = random.randint(1, character_count)
-used_characters_file = 'used_character_ids'
 character_id_string = check_if_id_used(str(character_id), character_count)
-with open('used_character_ids', 'a') as f:
+with open(USED_IDS, 'a') as f:
     f.write(f'a{character_id}a')
 character_id_string = character_id_string.replace('a', '')
 character_url = f'{RM_API_URL}/{character_id_string}'
@@ -60,7 +60,7 @@ for episode in character["episode"]:
         episode_string += episode_name
 print(episode_string)
 print('____________________________________________________________')
-used_characters.append(character_id)
+
 character_image = mastodon.media_post('image.jpeg', mime_type='image/jpeg')
 mastodon.status_post(f'Name: {character["name"]} \n'
                      f'Species: {character["species"]}\n'
