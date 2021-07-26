@@ -9,6 +9,7 @@ import requests
 import random
 from mastodon import Mastodon
 
+# For automation it helps to have full path to script directory, ie /home/username/RickAndMortyMastodonBot/
 WRK_DIR = 'path_to_script_directory'
 # Read config file
 config = configparser.ConfigParser()
