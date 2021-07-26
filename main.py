@@ -11,13 +11,13 @@ from mastodon import Mastodon
 
 # Read config file
 config = configparser.ConfigParser()
-config.read('config')
+config.read('./config')
 
 # URL for the characters
 RM_API_URL = 'https://rickandmortyapi.com/api/character'
-
+WRK_DIR = 'path_to_script_directory'
 # Used character IDs file
-USED_IDS = '/home/justinclarkturney/bots/RickAndMortyMastodonBot/used_character_ids'
+USED_IDS = f'{WRK_DIR}used_character_ids'
 # Get total character count
 response = requests.get(RM_API_URL)
 json_response = response.json()
