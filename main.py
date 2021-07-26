@@ -9,13 +9,13 @@ import requests
 import random
 from mastodon import Mastodon
 
+WRK_DIR = 'path_to_script_directory'
 # Read config file
 config = configparser.ConfigParser()
-config.read('./config')
+config.read(f'{WRK_DIR}config')
 
 # URL for the characters
 RM_API_URL = 'https://rickandmortyapi.com/api/character'
-WRK_DIR = 'path_to_script_directory'
 # Used character IDs file
 USED_IDS = f'{WRK_DIR}used_character_ids'
 # Get total character count
